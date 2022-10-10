@@ -16,7 +16,7 @@ function showMovies(url) {
       console.log(data.results);
       $("#my_movies").empty();
       my_results = data.results;
-      if(my_results){
+      if(my_results.length){
         my_results.forEach( elem => {
             $("#my_movies").append(`
             <div class="content">
@@ -24,6 +24,11 @@ function showMovies(url) {
                 <h2>${elem.title}</h2>
             </div>`);
         })
+      }else{
+        $("#my_movies").append(`
+            <span>
+                OOPS NO RESULT FOUND!
+            </span>`);
       }
     });
 }
